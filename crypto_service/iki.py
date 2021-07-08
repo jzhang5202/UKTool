@@ -425,6 +425,7 @@ class iki(QWidget):
                 pSignatureStr = pSignatureStr +str(hex((g.pSignature.r)[i]))
 
             print("pSignatureStr =%s"% (pSignatureStr))
+            print("yyyyyyy")
         else:
             g.textBrowser.append("SM2 签名 （无证书）失败，code = "+hex(code))
             logger.info("SM2 签名 （无证书）失败，code = "+hex(code))
