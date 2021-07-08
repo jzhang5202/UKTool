@@ -394,13 +394,14 @@ class iki(QWidget):
 
     # 4.1.8.1.	获取公钥矩阵Hash
     def getPkmHash(self):
-        print("aaaaaa")
+
         g.pkmHash = create_string_buffer(32)
         code = gm.SKF_get_matrix_hash(g.phApplication,byref(g.pkmHash))
         if code ==0:
             g.textBrowser.append("获取公钥矩阵Hash 成功，code= "+hex(code))
             logger.info("获取公钥矩阵Hash成功，code= "+hex(code))
             logger.info("获取公钥矩阵Hash成功，g.pkmHash= %s " % (g.pkmHash.value))
+            print("tttttt")
         else:
             g.textBrowser.append("获取公钥矩阵Hash 失败，code= " + hex(code))
             logger.info("获取公钥矩阵Hash 失败，code= " + hex(code))
