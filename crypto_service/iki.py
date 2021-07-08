@@ -394,6 +394,7 @@ class iki(QWidget):
 
     # 4.1.8.1.	获取公钥矩阵Hash
     def getPkmHash(self):
+        print("aaaaaa")
         g.pkmHash = create_string_buffer(32)
         code = gm.SKF_get_matrix_hash(g.phApplication,byref(g.pkmHash))
         if code ==0:

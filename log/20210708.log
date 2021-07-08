@@ -1,0 +1,8 @@
+2021-07-08 11:55:30,353 [INFO]: #  枚举设备成功,message:b'CIDC CD-ROM USB Device'
+2021-07-08 11:55:37,601 [INFO]: #  设备连接成功,message:0
+2021-07-08 11:55:40,941 [INFO]: #  打开应用成功,message:0
+2021-07-08 11:55:41,414 [INFO]: #  校验用户PIN成功,message:0
+2021-07-08 11:55:42,268 [INFO]: #  打开容器成功,message:0
+2021-07-08 11:55:43,820 [INFO]: #  获取公钥矩阵Hash成功，code= 0x0
+2021-07-08 11:55:43,820 [INFO]: #  获取公钥矩阵Hash成功，g.pkmHash= b'\x86g/\x1f6\xc6#6\x8c\xb2\xe8=h\xbc6\xea\x0b\x9f.7Mg\xce\xbc\xc3\xc0\x8a@w\xce\xb8\xf7' 
+2021-07-08 11:55:45,796 [INFO]: #  SM2 签名 （无证书）成功，code = 0x0
