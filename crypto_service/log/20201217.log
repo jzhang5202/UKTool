@@ -1,0 +1,7 @@
+2020-12-17 14:22:48,818 [ERROR]: #  [WinError 193] %1 不是有效的 Win32 应用程序。
+Traceback (most recent call last):
+  File "E:\python\UKtool\utils\guomi.py", line 20, in load_lib
+    return CDLL(path)
+  File "C:\python32378\lib\ctypes\__init__.py", line 364, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: [WinError 193] %1 不是有效的 Win32 应用程序。

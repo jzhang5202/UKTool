@@ -1,0 +1,74 @@
+2020-11-24 16:36:03,488 [ERROR]: #  当前项目下未找到库文件！3s 后程序退出...
+2020-11-24 16:49:00,565 [ERROR]: #  当前项目下未找到库文件！3s 后程序退出...
+2020-11-24 17:24:14,306 [ERROR]: #  当前项目下未找到库文件！3s 后程序退出...
+2020-11-24 17:24:55,707 [ERROR]: #  当前项目下未找到库文件！3s 后程序退出...
+2020-11-24 17:30:08,829 [ERROR]: #  Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+Traceback (most recent call last):
+  File "Y:\test_projects\Test\UKtool\utils\globals.py", line 37, in get_dll
+    dl = CDLL(path)
+  File "C:\Program Files\Python38\lib\ctypes\__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+2020-11-24 17:31:36,954 [ERROR]: #  Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+Traceback (most recent call last):
+  File "Y:\test_projects\Test\UKtool\utils\globals.py", line 37, in get_dll
+    dl = CDLL(path)
+  File "C:\Program Files\Python38\lib\ctypes\__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+2020-11-24 17:32:56,826 [ERROR]: #  Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+Traceback (most recent call last):
+  File "Y:\test_projects\Test\UKtool\utils\globals.py", line 38, in get_dll
+    dl = CDLL(path)
+  File "C:\Program Files\Python38\lib\ctypes\__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+2020-11-24 17:35:55,593 [ERROR]: #  当前项目下未找到库文件！3s 后程序退出...
+2020-11-24 17:39:24,749 [ERROR]: #  当前项目下未找到库文件！3s 后程序退出...
+2020-11-24 17:41:04,407 [ERROR]: #  Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+Traceback (most recent call last):
+  File "F:\Test\UKtool\utils\globals.py", line 38, in get_dll
+    dl = CDLL(path)
+  File "C:\Program Files\Python38\lib\ctypes\__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+2020-11-24 17:41:46,669 [ERROR]: #  Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+Traceback (most recent call last):
+  File "F:\Test\UKtool\utils\globals.py", line 38, in get_dll
+    dl = CDLL(path)
+  File "C:\Program Files\Python38\lib\ctypes\__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+2020-11-24 17:42:46,030 [ERROR]: #  Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+Traceback (most recent call last):
+  File "F:\Test\UKtool\utils\globals.py", line 38, in get_dll
+    dl = CDLL(path)
+  File "C:\Program Files\Python38\lib\ctypes\__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+2020-11-24 17:42:59,235 [ERROR]: #  [WinError 87] 参数错误。: 'GUOMI.dll'
+Traceback (most recent call last):
+  File "F:\Test\UKtool\utils\globals.py", line 38, in get_dll
+    dl = os.add_dll_directory(path)
+  File "C:\Program Files\Python38\lib\os.py", line 1109, in add_dll_directory
+    cookie = nt._add_dll_directory(path)
+OSError: [WinError 87] 参数错误。: 'GUOMI.dll'
+2020-11-24 17:43:31,504 [ERROR]: #  name 'ctypes' is not defined
+Traceback (most recent call last):
+  File "F:\Test\UKtool\utils\globals.py", line 38, in get_dll
+    dl = ctypes.cdll.LoadLibrary(path)
+NameError: name 'ctypes' is not defined
+2020-11-24 17:44:16,843 [ERROR]: #  name 'ctypes' is not defined
+Traceback (most recent call last):
+  File "F:\Test\UKtool\utils\globals.py", line 38, in get_dll
+    dl = ctypes.cdll.LoadLibrary(path)
+NameError: name 'ctypes' is not defined
+2020-11-24 17:44:51,694 [ERROR]: #  Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+Traceback (most recent call last):
+  File "F:\Test\UKtool\utils\globals.py", line 39, in get_dll
+    dl = ctypes.cdll.LoadLibrary(path)
+  File "C:\Program Files\Python38\lib\ctypes\__init__.py", line 451, in LoadLibrary
+    return self._dlltype(name)
+  File "C:\Program Files\Python38\lib\ctypes\__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.

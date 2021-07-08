@@ -1,0 +1,24 @@
+2020-11-26 14:28:07,337 [ERROR]: #  写文件失败，message：无效的句柄
+2020-11-26 14:41:22,330 [ERROR]: #  枚举设备失败，message：0
+2020-11-26 14:53:12,998 [ERROR]: #  枚举设备失败，message：0
+2020-11-26 15:45:10,744 [ERROR]: #  导出矩阵失败，code=发送数据错误
+2020-11-26 15:45:11,609 [ERROR]: #  数据加密杂凑成功,message:设备已移除
+2020-11-26 15:45:12,303 [ERROR]: #  发方生成密钥协商参数并输出失败，message：无效的句柄
+2020-11-26 15:45:12,780 [ERROR]: #  生成ecc签名钥对失败，message：无效的句柄
+2020-11-26 15:45:13,256 [ERROR]: #  容器创建失败，message：失败
+2020-11-26 15:45:13,652 [ERROR]: #  枚举应用失败，message：设备已移除
+2020-11-26 15:45:16,219 [ERROR]: #  修改设备认证密钥失败，message：设备已移除
+2020-11-26 15:45:17,424 [ERROR]: #  枚举设备失败，message：0
+2020-11-26 16:22:32,859 [ERROR]: #  枚举设备失败，message：0
+2020-11-26 16:22:34,612 [ERROR]: #  修改设备认证密钥失败，message：设备已移除
+2020-11-26 16:22:35,316 [ERROR]: #  枚举应用失败，message：设备已移除
+2020-11-26 16:22:36,033 [ERROR]: #  容器创建失败，message：失败
+2020-11-26 16:24:35,703 [ERROR]: #  枚举设备失败，message：0
+2020-11-26 16:37:16,958 [ERROR]: #  枚举设备失败，message：0
+2020-11-26 16:38:16,545 [ERROR]: #  枚举设备失败，message：0
+2020-11-26 16:38:16,546 [ERROR]: #  'QPlainTextEdit' object has no attribute 'append'
+Traceback (most recent call last):
+  File "F:\Test\UKtool\skfapi\device.py", line 27, in SKF_EnumDev
+    g.textBrowser.append(Message.ENUMERATE_DEV_FAILED + code_to_str(code))
+AttributeError: 'QPlainTextEdit' object has no attribute 'append'
+2020-11-26 16:38:52,374 [ERROR]: #  枚举设备失败，message：0

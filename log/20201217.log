@@ -1,0 +1,76 @@
+2020-12-17 09:46:40,051 [ERROR]: #  枚举设备失败，message：0
+2020-12-17 09:46:42,814 [ERROR]: #  设备连接失败，message：名称长度错误
+2020-12-17 09:53:29,761 [ERROR]: #  设备连接失败，message：名称长度错误
+2020-12-17 09:53:45,213 [ERROR]: #  设备连接失败，message：名称长度错误
+2020-12-17 09:57:27,811 [ERROR]: #  枚举设备失败，message：0
+2020-12-17 09:58:05,090 [INFO]: #  枚举设备成功,message:b'CIDC CD-ROM USB Device'
+2020-12-17 09:58:07,668 [INFO]: #  设备连接成功,message:0
+2020-12-17 09:58:14,214 [INFO]: #  设备成功断开,message:0
+2020-12-17 09:58:20,774 [ERROR]: #  枚举设备失败，message：0
+2020-12-17 09:58:22,680 [ERROR]: #  设备连接失败，message：名称长度错误
+2020-12-17 11:35:52,859 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 11:36:22,801 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 11:36:26,355 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 11:37:26,464 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 11:53:19,259 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 14:23:37,973 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 14:28:06,581 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 14:29:28,046 [ERROR]: #  not all arguments converted during string formatting
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    print("bPresent=="%bPresent)
+TypeError: not all arguments converted during string formatting
+2020-12-17 14:33:54,693 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 24, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 14:34:23,836 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 14:35:00,394 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 14:35:44,137 [ERROR]: #  Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+Traceback (most recent call last):
+  File "E:\python\UKtool\crypto_service\device.py", line 21, in SKF_EnumDev
+    code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
+ValueError: Procedure called with not enough arguments (12 bytes missing) or wrong calling convention
+2020-12-17 14:38:37,936 [INFO]: #  枚举设备成功,message:b'CIDC CD-ROM USB Device'
+2020-12-17 14:38:38,036 [INFO]: #  设备连接成功,message:0
+2020-12-17 14:38:38,072 [INFO]: #  设备认证成功,message:0
+2020-12-17 14:38:38,170 [INFO]: #  删除应用成功,message:0
+2020-12-17 14:38:52,098 [INFO]: #  枚举设备成功,message:b'CIDC CD-ROM USB Device'
+2020-12-17 14:38:53,876 [INFO]: #  设备连接成功,message:0
