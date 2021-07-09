@@ -401,7 +401,7 @@ class iki(QWidget):
             g.textBrowser.append("获取公钥矩阵Hash 成功，code= "+hex(code))
             logger.info("获取公钥矩阵Hash成功，code= "+hex(code))
             logger.info("获取公钥矩阵Hash成功，g.pkmHash= %s " % (g.pkmHash.value))
-            print("tttttt")
+            print("9号第一次提交")
         else:
             g.textBrowser.append("获取公钥矩阵Hash 失败，code= " + hex(code))
             logger.info("获取公钥矩阵Hash 失败，code= " + hex(code))
