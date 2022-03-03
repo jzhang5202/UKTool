@@ -19,6 +19,7 @@ class Container(QWidget):
         # if not container_name:
         container_name = CONTAINER_NAME
         code = gm.SKF_CreateContainer(g.phApplication, container_name.encode(), g.phContainer)
+
         if 0 == code:
             g.textBrowser.append(Message.CREATE_CONTAINER_SUCCESS + code_to_str(code))
             logger.info(Message.CREATE_CONTAINER_SUCCESS + code_to_str(code))
@@ -44,6 +45,7 @@ class Container(QWidget):
         gm.SKF_OpenContainer.argtypes = [c_void_p, c_char_p, POINTER(c_void_p)]
         container_name = CONTAINER_NAME
         code = gm.SKF_OpenContainer(g.phApplication, container_name.encode(), g.phContainer)
+        print("SKF_OpenContainer")
         if 0 == code:
             g.textBrowser.append(Message.OPEN_CONTAINER_SUCCESS + code_to_str(code))
             logger.info(Message.OPEN_CONTAINER_SUCCESS + code_to_str(code))
@@ -64,7 +66,8 @@ class Container(QWidget):
 
     def SKF_GetContainerType(self):
         pulContainerType = c_ulong()
-        code = gm.SKF_GetContainerType(g.phApplication, szContainerName, byref(pulContainerType))
+        code = gm.SKF_GetContainerType(g.phContainer, byref(pulContainerType))
+        print("code ==%s"%hex(code))
         if 0 == code:
             g.textBrowser.append(Message.GET_CONTAINER_TYPE_SUCCESS + code_to_str(code))
             logger.info(Message.GET_CONTAINER_TYPE_SUCCESS + code_to_str(code))

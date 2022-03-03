@@ -8,6 +8,11 @@ ECC_MAX_XCOORDINATE_BITS_LEN = 512
 ECC_MAX_YCOORDINATE_BITS_LEN = 512
 ECC_MAX_MODULUS_BITS_LEN = 512
 MAX_IV_LEN = 32
+MAX_RSA_MODULUS_LEN = 256
+MAX_RSA_EXPONENT_LEN = 4
+
+ArrModulus = c_ubyte * MAX_RSA_MODULUS_LEN
+ArrPublicExponent = c_ubyte * MAX_RSA_EXPONENT_LEN
 
 Arr64K = c_ubyte * 65536  # 64k
 Arr2048 = c_ubyte * 2048
@@ -22,6 +27,7 @@ Arr200 = c_ubyte * 200
 Arr180 = c_ubyte * 180
 Arr132 = c_ubyte * 132
 Arr128 = c_ubyte * 128
+Arr256 = c_ubyte * 256
 Arr100 = c_ubyte * 100
 Arr65 = c_ubyte * 65
 Arr64 = c_ubyte * 64
@@ -67,6 +73,13 @@ class ECCPUBLICKEYBLOB(Structure):
                 ('YCoordinate', ArrY)]
 
 
+class RSAPUBLICKEYBLOB(Structure):
+    _fields_ = [('AlgID', c_ulong),
+                ('BitLen', c_ulong),
+                ('Modulus', ArrModulus),
+                ('PublicExponent',ArrPublicExponent)]
+
+
 class ECCCIPHERBLOB(Structure):
     _fields_ = [('XCoordinate', ArrX),
                 ('YCoordinate', ArrY),
@@ -104,24 +117,26 @@ class FILEATTRIBUTE(Structure):
                 ('WriteRights', c_ulong)]
 
 
-szNameList = create_string_buffer(32)
-szAppNameList = create_string_buffer(16)
-szContainerName = create_string_buffer(16)
+szNameList = create_string_buffer(128)
+szAppNameList = create_string_buffer(128)
+szContainerName = create_string_buffer(128)
 LABEL = "dmsUK123"
 APP_NAME = "dmsUK"
+# CONTAINER_NAME = "1808F7E4-9176-4448-AC14-744118DCD04E"
 CONTAINER_NAME = "dmsUK1"
+# CONTAINER_NAME = "GA_APPLICATION"
 FILE_NAME = "dms2020"
 DEV_PIN = "12345678"
-NEW_DEV_PIN = "88888888"
+NEW_DEV_PIN = "12345678"
 USER_PIN = "12345678"
-NEW_USER_PIN = "88888888"
+NEW_USER_PIN = "12345678"
 ADM_PIN = "12345678"
-NEW_ADM_PIN = "88888888"
+NEW_ADM_PIN = "12345678"
 USER_TYPE = 1
 ADM_TYPE = 0
 
 CER_FILE_PATH = ""  # 证书路径
-SIGN_CER_TYPE = 0  # 签名证书类型
+SIGN_CER_TYPE = 1  # 签名证书类型
 
 SECURE_USER_ACCOUNT = 0x00000010  # 用户权限
 SECURE_ADM_ACCOUNT = 0x00000001  # 管理员权限
@@ -129,6 +144,8 @@ SECURE_ADM_ACCOUNT = 0x00000001  # 管理员权限
 pbRandom = (c_ubyte * 2048)()
 ulRandomLen = 8  # 随机数长度
 
+
+SGD_RSA	= 0x00010000
 SGD_ECB = 0x00000001
 SGD_SM3 = 0x00000001
 SGD_SM2_1 = 0x00020200
@@ -138,6 +155,7 @@ SGD_SMS4_ECB = 0x00000401  # SMS4算法ECB加密模式
 SGD_SMS4_CBC = 0x00000402  # SM4算法CBC加密模式
 SGD_SMS4_CFB = 0x00000404  # SM4算法CFB加密模式
 SGD_SMS4_OFB = 0x00000408  # SM4算法OFB加密模式
+
 
 gl_Digest_hHash = c_void_p()  # HASH句柄
 cipherText = Arr1024()

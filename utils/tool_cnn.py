@@ -89,6 +89,9 @@ class Test(Ui_UkeyTestTool, Crypto):
         self.pushButton65.clicked.connect(self.SKF_Mac)
         self.pushButton66.clicked.connect(self.SKF_MacUpdate)
         self.pushButton67.clicked.connect(self.SKF_MacFinal)
+
+        self.pushButton43_2.clicked.connect(self.SKF_RSASignData)
+        self.pushButton43_3.clicked.connect(self.SKF_RSAVerify)
         # IKI自主服务接口
         self.pushButton68.clicked.connect(self.SKF_ImportIdentify)
         self.pushButton69.clicked.connect(self.SKF_ExportIdentify)
@@ -124,10 +127,14 @@ class Test(Ui_UkeyTestTool, Crypto):
         self.pushButton98.clicked.connect(self.SKF_Decrypt_XN)
         self.pushButton99.clicked.connect(self.write_file_XN)
         self.pushButton100.clicked.connect(self.read_file_XN)
+        self.pushButton1_5.clicked.connect(self.signNoCert_XN)
+        self.pushButton1_6.clicked.connect(self.verifyNoCert_XN)
+
 
         self.pushButton_89.clicked.connect(open_log_file)
         self.pushButton_2.clicked.connect(self.device_reset)
 
         self.pushButton1_2.clicked.connect(self.getPkmHash)
         self.pushButton1_3.clicked.connect(self.signNoCert)
+        self.pushButton1_4.clicked.connect(self.verifyNoCert)
 

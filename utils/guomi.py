@@ -6,7 +6,7 @@ import sys
 import time
 from ctypes import CDLL, windll,cdll
 from utils.logs import logger
-
+#
 def load_lib():
     if os.path.exists("./GUOMI.dll"):
         path = "./GUOMI.dll"
@@ -22,5 +22,7 @@ def load_lib():
     except BaseException as e:
         logger.exception(e)
         sys.exit(0)
+
+
 
 gm = load_lib()

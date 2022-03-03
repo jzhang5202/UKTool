@@ -38,7 +38,8 @@ class iki(QWidget):
         if code == 0:
             g.textBrowser.append("导出实体标识成功，code=" + code_to_str(code))
             logger.info("导出实体标识成功，code=" + code_to_str(code))
-            for i in pbIden: print(i)
+            # for i in pbIden: print(i)
+            print("identify:%s" % pbIden.value)
         else:
             g.textBrowser.append("导出实体标识失败，code=" + code_to_str(code))
             logger.error("导出实体标识失败，code=" + code_to_str(code))
@@ -70,11 +71,16 @@ class iki(QWidget):
     def SKF_ExportPubMatrix(self):
         pbPubMatrix = ArrPKM()
         ulMatLen = c_uint()
-        Flag = True
+        Flag = False
         code = gm.SKF_ExportPubMatrix(g.phApplication, byref(pbPubMatrix), byref(ulMatLen), Flag)
         if code == 0:
             g.textBrowser.append("导出矩阵成功，code=" + code_to_str(code))
             logger.info("导出矩阵成功，code=" + code_to_str(code))
+            pkmFile = open("F:\\test\\pkmNocert.txt","wb+")
+            pkmFile.write(pbPubMatrix)
+            pkmFile.close()
+
+
         else:
             logger.error("导出矩阵失败，code=" + hex(code))
 
@@ -401,7 +407,7 @@ class iki(QWidget):
             g.textBrowser.append("获取公钥矩阵Hash 成功，code= "+hex(code))
             logger.info("获取公钥矩阵Hash成功，code= "+hex(code))
             logger.info("获取公钥矩阵Hash成功，g.pkmHash= %s " % (g.pkmHash.value))
-            print("9号第一次提交")
+
         else:
             g.textBrowser.append("获取公钥矩阵Hash 失败，code= " + hex(code))
             logger.info("获取公钥矩阵Hash 失败，code= " + hex(code))
@@ -421,16 +427,49 @@ class iki(QWidget):
         if code == 0:
             g.textBrowser.append("SM2 签名 （无证书）成功，code = "+hex(code))
             logger.info("SM2 签名 （无证书）成功，code = "+hex(code))
-            pSignatureStr = ""
+            pSignatureStrR=''
+            pSignatureStrS= ''
+            pSignatureList = []
+            PAStr = ''
             for i in range(len(g.pSignature.r)):
-                # print("SM2 签名 r = %s"% (g.pSignature.r)[i])
-                pSignatureStr = pSignatureStr +str(hex((g.pSignature.r)[i]))
+                # pSignatureList.append((hex((g.pSignature.r)[i])))
+                pSignatureStrR = pSignatureStrR +',' +hex(((g.pSignature.r)[i]))
+            for i in range(len(g.pSignature.s)):
+                # pSignatureList.append((hex((g.pSignature.s)[i])))
+                pSignatureStrS = pSignatureStrS +',' +hex(((g.pSignature.s)[i]))
 
-            print("pSignatureStr =%s"% (pSignatureStr))
-            print("oooooooooooooooo")
+            print("pSignatureStr  r = %s" %pSignatureStrR)
+            print("pSignatureStr  s = %s" %pSignatureStrS)
+            # print("pSignatureList %s" % pSignatureList)
+
+            for i in range(len(g.PA.XCoordinate)):
+                PAStr = PAStr +','+(hex(g.PA.XCoordinate[i]))
+            for i in range(len(g.PA.YCoordinate)):
+                PAStr = PAStr +','+(hex(g.PA.YCoordinate[i]))
+            print("PAStr =%s" % PAStr)
+
 
         else:
             g.textBrowser.append("SM2 签名 （无证书）失败，code = "+hex(code))
             logger.info("SM2 签名 （无证书）失败，code = "+hex(code))
+
+
+    # 4.1.8.6.	SM2验签
+    def verifyNoCert(self):
+
+        code = gm.dmsUK_UKey_verify_no_cert(g.phApplication,g.pkmHash,g.Identity,len(g.Identity),g.useSignData,len(g.useSignData),(g.PA),(g.pSignature))
+        if code == 0:
+            print("SM2验签 ok")
+        else:
+            print("SM2验签 error !! %s" % hex(code))
+
+
+
+
+
+
+
+
+
 
 

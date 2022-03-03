@@ -17,7 +17,7 @@ class Device(QWidget):
     def SKF_EnumDev(self):
         try:
             bPresent = c_bool(True)
-            pulSize = pointer(c_uint())
+            pulSize = pointer(c_uint(128))
             code = gm.SKF_EnumDev(bPresent, szNameList, pulSize)
             if 0 == code and szNameList.value != b'':
                 logger.info(Message.ENUMERATE_DEV_SUCCESS + str(szNameList.value))

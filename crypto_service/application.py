@@ -33,7 +33,7 @@ class Application(QWidget):
 
     def SKF_EnumApplication(self):
         try:
-            pulSize = pointer(c_ulong())
+            pulSize = pointer(c_ulong(128))
             code = gm.SKF_EnumApplication(g.phDev, szAppNameList, pulSize)
             if 0 == code:
                 g.textBrowser.append(Message.ENUM_APP_SUCCESS + repr(szAppNameList.raw.decode()))

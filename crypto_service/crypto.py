@@ -12,7 +12,10 @@ from crypto_service.skf import Skf
 from crypto_service.application import Application
 from PyQt5.QtWidgets import QMessageBox
 
-class Crypto(Application, Skf, File, Container, Authority, Device, iki, Performance):
+from crypto_service.skfRSA import SkfRSA
+
+
+class Crypto(Application, Skf, File, Container, Authority, Device, iki, Performance,SkfRSA):
     def device_reset(self):  # 设备重置
         reply = QMessageBox.warning(self, "警告", "是否执行设备初始化？", QMessageBox.Yes | QMessageBox.No)
         if reply == 16384:
@@ -20,7 +23,9 @@ class Crypto(Application, Skf, File, Container, Authority, Device, iki, Performa
                 self.SKF_EnumDev()
                 self.SKF_ConnectDev()
                 self.SKF_DevAuth()
-                self.SKF_DeleteApplication()
+                # self.SKF_DeleteApplication()
+                self.SKF_EnumDev()
+                
             except BaseException as e:
                 pass
             return True
