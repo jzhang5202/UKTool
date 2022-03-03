@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['F:\\Test\\UKtool'],
+             pathex=['E:\\python\\UKtool'],
              binaries=[],
              datas=[],
              hiddenimports=['queue'],

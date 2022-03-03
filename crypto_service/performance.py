@@ -6,10 +6,14 @@
 
 # @async_
 import time
-from ctypes import byref, pointer, c_void_p, memmove, create_string_buffer, c_uint, memset, c_ulong
+from concurrent.futures.thread import ThreadPoolExecutor
+
+from ctypes import byref, pointer, c_void_p, memmove, create_string_buffer, c_uint, memset, c_ulong, c_bool, c_char_p, \
+    POINTER
 
 from utils.constant import SGD_SM2_1, Arr32, Arr128, Arr132, ECCPUBLICKEYBLOB, ECCSIGNATUREBLOB, ECCCIPHERBLOB, Arr180, \
-    SGD_SMS4_ECB, SGD_SM3, gl_Digest_hHash, BLOCKCIPHERPARAM, plainTextXN, cipherTextXN, SGD_ECB, Arr16, Arr1024
+    SGD_SMS4_ECB, SGD_SM3, gl_Digest_hHash, BLOCKCIPHERPARAM, plainTextXN, cipherTextXN, SGD_ECB, Arr16, Arr1024, \
+    szNameList, APP_NAME, NEW_USER_PIN, USER_PIN, USER_TYPE, CONTAINER_NAME
 from utils.globals import g
 from utils.guomi import gm
 from utils.logs import logger
@@ -239,7 +243,7 @@ class Performance(QWidget):
         SGD_ECB = 0x00000001
         memset(EncryptParam.IV, 0X00, 32)
         EncryptParam.PaddingType = SGD_ECB
-        start_time = time.time_ns()
+        start_time = time.time()
         code = gm.SKF_EncryptInit(g.SessionKey, EncryptParam)
         if code == 0:
             logger.info(Message.ENCRYPT_INIT_SUCCESS + code_to_str(code))
@@ -259,8 +263,9 @@ class Performance(QWidget):
             logger.info(Message.ENCRYPT_FINAL_SUCCESS + code_to_str(code))
         else:
             logger.error(Message.ENCRYPT_FINAL_FAILED + code_to_str(code))
-        end_time = time.time_ns()
-        total_time = (end_time - start_time) / 10 ** 6
+        end_time = time.time()
+        # total_time = (end_time - start_time) / 10 ** 6
+        total_time = (end_time - start_time)
         # logger.info()("Encrypt time：%s ms" % total_time)
         # speed = 1000 * plainTextLen / (1024 * total_time)
         print('====')
@@ -344,3 +349,61 @@ class Performance(QWidget):
             logger.info("SKF_ReadFile time：%d ms" % start_time)
             speed = 1000 * (128 * 160) / (1024 * start_time)
             logger.info("SKF_ReadFile speed：%f KB/s" % speed)
+
+
+
+    def signNoCert_XN(self):
+
+        g.pSignature = Arr128()
+        run_time = 0
+        w = 0
+        num, ok = QInputDialog.getInt(self, "测试次数", "请输入测试次数")
+        if ok:
+            for i in range(num):
+                start_time = time.time()
+                code = gm.dmsUK_UKey_Sign_no_cert(g.phContainer, g.pkmHash, g.Identity, len(g.Identity), g.useSignData,len(g.useSignData), byref(g.pSignature), byref(g.PA))
+                end_time = time.time()
+                if 0 == code:
+                    run_time += (end_time - start_time)
+                else:
+                    logger.error("signNoCert_XN error:" + code_to_str(code))
+                    w = w + 1
+            signle_time = (run_time * 1000) / num
+            logger.info("执行 %s 次，成功 %s 次，单次平均执行时间：%d ms" % (num,num-w,signle_time))
+            if ( 0 < run_time ):
+                result_xn = num / (run_time)
+                logger.info("dmsUK_UKey_Sign_no_cert 性能测试结果：%d 次/秒" % result_xn)
+
+
+    def verifyNoCert_XN(self):
+        run_time = 0
+        w = 0
+
+        code = gm.dmsUK_UKey_Sign_no_cert(g.phContainer, g.pkmHash, g.Identity, len(g.Identity), g.useSignData,len(g.useSignData), byref(g.pSignature), byref(g.PA))
+        if code == 0:
+            g.textBrowser.append("SM2 签名 （无证书）成功，code = "+hex(code))
+            logger.info("SM2 签名 （无证书）成功，code = "+hex(code))
+        else:
+            g.textBrowser.append("SM2 签名 （无证书）失败，code = "+hex(code))
+            logger.info("SM2 签名 （无证书）失败，code = "+hex(code))
+        num, ok = QInputDialog.getInt(self, "测试次数", "请输入测试次数")
+
+        if ok:
+            for i in range(num):
+                start_time = time.time()
+                code = gm.dmsUK_UKey_verify_no_cert(g.phApplication, g.pkmHash, g.Identity, len(g.Identity), g.useSignData,len(g.useSignData), g.PA, g.pSignature)
+                end_time = time.time()
+                if code == 0:
+                    # print("SM2验签 ok")
+                    run_time += (end_time - start_time)
+                else:
+                    print("SM2验签 error !! %s" % hex(code))
+                    w = w + 1
+            signle_time = (run_time * 1000) / num
+            logger.info("执行 %s 次，成功 %s 次，单次平均执行时间：%d ms" % (num,num-w,signle_time))
+            if ( 0 < run_time ):
+                result_xn = num / (run_time)
+                logger.info("dmsUK_UKey_verify_no_cert 性能测试结果：%d 次/秒" % result_xn)
+
+
+

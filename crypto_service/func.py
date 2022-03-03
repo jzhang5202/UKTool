@@ -13,3 +13,14 @@ unpadding = lambda data: data[:-data[-1]]
 list_to_bytes = lambda data: b''.join([bytes((i,)) for i in data])
 
 bytes_to_list = lambda data: [i for i in data]
+
+#分行打印（Arr128 = c_ubyte * 128）类型
+def printArry(funname,arry):
+    print("%s 值是："%funname)
+    for i in range(len(arry)):
+        if (i+1)%8 !=0:
+            print(hex(arry[i]),end="")
+            print(" ", end="")
+        else:
+            print(hex(arry[i]))
+    print("\n")
