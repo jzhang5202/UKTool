@@ -18,8 +18,8 @@ class Globals:
         self.logfile = None
         self.pkmHash = c_uint()
         self.IdentityPubBlob = ECCPUBLICKEYBLOB  #标识公钥
-        self.Identity = "012006303531393436FFFF1928" #用户标识
-        self.useSignData = "dmschangshahonghuo"   # 签名使用的原文数据
+        self.Identity = b"012006303531393436FFFF1928" #用户标识  # 前面必须加个b,不加b的话，可以通过str.encode('utf-8') 转换
+        self.useSignData = b"dmschangshahonghuo"   # 签名使用的原文数据
         self.PA = ECCPUBLICKEYBLOB() # PA
 
 
