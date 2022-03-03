@@ -21,3 +21,4 @@ if __name__ == '__main__':
     win = Test()
     win.show()
     sys.exit(app.exec_())
+    print("2222")
