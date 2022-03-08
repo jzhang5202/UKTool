@@ -1,7 +1,0 @@
-2020-11-24 17:36:18,523 [ERROR]: #  Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
-Traceback (most recent call last):
-  File "Y:/test_projects/Test/UKtool/utils/globals.py", line 38, in get_dll
-    dl = CDLL(path)
-  File "C:\Program Files\Python38\lib\ctypes\__init__.py", line 373, in __init__
-    self._handle = _dlopen(self._name, mode)
-FileNotFoundError: Could not find module 'GUOMI.dll' (or one of its dependencies). Try using the full path with constructor syntax.
